@@ -17,6 +17,7 @@ class Tree {
     std::vector<char> displace;
     std::string cell;
     std::vector<std::vector<char>> result;
+
  public:
     explicit Tree(std::vector <char> in) {
         val = in;
@@ -27,7 +28,7 @@ class Tree {
         displacement(in, -1, 0, root);
     }
 
-    Node* addNodeT(char value) {
+    NodeT* addNodeT(char value) {
         NodeT* temp = new NodeT;
         temp->value = value;
         return temp;
@@ -46,11 +47,11 @@ class Tree {
         for (int i = 0; i < in.size(); i++) {
             root->dot.push_back(addNodeT(in[i]));
             displace[number] = in[i];
-            displacement(in, i, num, root->point[i]);
+            displacement(in, i, number, root->dot[i]);
         }
     }
     std::vector<char> getPerm(Tree tree, int number) {
-        if (number > resulst.size()) return {};
+        if (number > result.size()) return {};
         return result[number - 1];
     }
 };
